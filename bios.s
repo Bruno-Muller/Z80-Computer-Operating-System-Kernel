@@ -1,6 +1,11 @@
 	.module	bios	
 	
-	BIOS_JUMP_TABLE .equ 0x0FCD
+	BIOS_JUMP_TABLE2 .equ 0x0FC7
+	
+	GET_DATETIME	.equ 0
+	SET_DATETIME	.equ 1
+	
+	BIOS_JUMP_TABLE 	.equ 0x0FCD
 
 	BOOT_FNUM	 .equ 0
 	WBOOT_FNUM	 .equ 1
@@ -19,6 +24,11 @@
 	WRITE_FNUM	 .equ 14
 	LISTST_FNUM	 .equ 15
 	SECTRAN_FNUM .equ 16
+	
+	_clock		.gblequ	0x57
+	
+	_bios_get_datetime .gblequ BIOS_JUMP_TABLE2 + 3 * GET_DATETIME
+	_bios_set_datetime .gblequ BIOS_JUMP_TABLE2 + 3 * SET_DATETIME
 
 	_bios_boot    .gblequ BIOS_JUMP_TABLE + 3 * BOOT_FNUM
 	_bios_wboot   .gblequ BIOS_JUMP_TABLE + 3 * WBOOT_FNUM
