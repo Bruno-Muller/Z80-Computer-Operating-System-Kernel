@@ -1,9 +1,10 @@
 	.module	bios	
 	
-	BIOS_JUMP_TABLE2 .equ 0x0FC7
+	BIOS_JUMP_TABLE2 .equ 0x0FC4
 	
-	GET_DATETIME	.equ 0
-	SET_DATETIME	.equ 1
+	CLOCK_HANDLER	.equ 0
+	GET_DATETIME	.equ 1
+	SET_DATETIME	.equ 2
 	
 	BIOS_JUMP_TABLE 	.equ 0x0FCD
 
@@ -27,8 +28,9 @@
 	
 	_clock		.gblequ	0x57
 	
-	_bios_get_datetime .gblequ BIOS_JUMP_TABLE2 + 3 * GET_DATETIME
-	_bios_set_datetime .gblequ BIOS_JUMP_TABLE2 + 3 * SET_DATETIME
+	_bios_clock_handler	.gblequ BIOS_JUMP_TABLE2 + 3 * CLOCK_HANDLER
+	_bios_get_datetime 	.gblequ BIOS_JUMP_TABLE2 + 3 * GET_DATETIME
+	_bios_set_datetime 	.gblequ BIOS_JUMP_TABLE2 + 3 * SET_DATETIME
 
 	_bios_boot    .gblequ BIOS_JUMP_TABLE + 3 * BOOT_FNUM
 	_bios_wboot   .gblequ BIOS_JUMP_TABLE + 3 * WBOOT_FNUM

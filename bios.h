@@ -14,6 +14,9 @@ typedef struct {
 	unsigned char year;
 } Clock;
 
+extern volatile Clock clock;
+
+extern void bios_clock_handler(void (*fct_pt)());
 extern void bios_get_datetime();
 extern void bios_set_datetime();
 
