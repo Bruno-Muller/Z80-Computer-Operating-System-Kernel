@@ -6,12 +6,13 @@ void ccp_echo(const char* string) {
 }
 
 void ccp_cls() {
-	print("\33[H\33[2J");
+	print("\033[H\033[2J\033[30m\033[47m\033[2KConsole\33[1;40H");
+	ccp_time();
+	print("\033[39m\33[49m\33[2;1H");
 }
 
 void ccp_time() {
 	bios_get_datetime();
-	print("\r\n");
 	print(days[clock.day-1]);
 	print(", ");
 	print(months[clock.month-1]);
@@ -40,6 +41,7 @@ void ccp_execute_command(const char* const command) {
 		ccp_cls();
 	}
 	else if(strcmp(command, "time")) {
+		print("\r\n");
 		ccp_time();
 		print("\r\n");
 	}
