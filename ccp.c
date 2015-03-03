@@ -6,7 +6,7 @@ void ccp_echo(const char* string) {
 }
 
 void ccp_cls() {
-	print("\033[H\033[2J\033[30m\033[47m\033[2KConsole\33[1;40H");
+	print("\033[1;1H\033[2J\033[30m\033[47m\033[2K Console\33[1;40H");
 	ccp_time();
 	print("\033[39m\33[49m\33[2;1H");
 }

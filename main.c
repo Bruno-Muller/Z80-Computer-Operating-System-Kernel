@@ -26,6 +26,6 @@ void main() {
 	
 	print("\033[2;30r");
 	print("\r\n == Z80 DOS ==\r\n B. M. 2015");
-	bios_clock_handler(&fct_clock);
+	//bios_clock_handler(&fct_clock);
 	ccp();
 }
