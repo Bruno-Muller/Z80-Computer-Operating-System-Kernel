@@ -6,7 +6,11 @@ void ccp_echo(const char* string) {
 }
 
 void ccp_cls() {
-	print("\033[1;1H\033[2J\033[30m\033[47m\033[2K Console\33[1;40H");
+	unsigned char size;
+	print("\033[1;1H\033[2J\033[30m\033[47m\033[2K Console\33[1;");
+	size = days_s[clock.day-1] + months_s[clock.month-1] + 20;
+	print_unsigned_char(80 - size);
+	putc('H');
 	ccp_time();
 	print("\033[39m\33[49m\33[2;1H");
 }

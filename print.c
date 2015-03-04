@@ -22,6 +22,12 @@ void print_unsigned_int(unsigned int data, char n) {
 	putc(data%10+'0');
 }
 
+void print_unsigned_char(unsigned char data) {
+	putc((data/100)%10+'0');
+	putc((data/10)%10+'0');
+	putc(data%10+'0');
+}
+
 void print_unsigned_int_hex(unsigned int data) {
 	Int tmp;
 	tmp.value=data;

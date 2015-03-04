@@ -15,6 +15,8 @@ static unsigned char buffer_index = 0;
 
 static const char * const months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 static const char * const days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+static unsigned char months_s[] = {7, 8, 5, 5, 3, 4, 4, 6, 9, 7, 8, 8};
+static unsigned char days_s[] = {6, 7, 9, 8, 6, 8, 6};
 
 char strcmp(const char* s1, const char* s2);
 void buffer_append(char c);
