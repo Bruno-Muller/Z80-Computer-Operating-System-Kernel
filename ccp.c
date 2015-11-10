@@ -7,8 +7,9 @@ void ccp_echo(const char* string) {
 
 void ccp_cls() {
 	unsigned char size;
+	unsigned char month = ((clock.month & 0xF0) == 0)?(clock.month):((clock.month & 0x0F)+10);
 	print("\033[1;1H\033[2J\033[30m\033[47m\033[2K Console\33[1;");
-	size = days_s[clock.day-1] + months_s[clock.month-1] + 20;
+	size = days_s[clock.day-1] + months_s[month-1] + 20;
 	print_unsigned_char(80 - size);
 	putc('H');
 	ccp_time();
@@ -16,10 +17,12 @@ void ccp_cls() {
 }
 
 void ccp_time() {
+	unsigned char month;
 	bios_get_datetime();
+	month = ((clock.month & 0xF0) == 0)?(clock.month):((clock.month & 0x0F)+10);
 	print(days[clock.day-1]);
 	print(", ");
-	print(months[clock.month-1]);
+	print(months[month-1]);
 	putc(' ');
 	print_hex(clock.date);
 	print(", 20");

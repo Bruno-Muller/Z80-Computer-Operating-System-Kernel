@@ -3,6 +3,8 @@
 
 void fct_clock() {
 	unsigned char size;
+	unsigned char month = ((clock.month & 0xF0) == 0)?(clock.month):((clock.month & 0x0F)+10);
+	
 	bios_conout(0x1B);
 	bios_conout('7');
 	
@@ -11,7 +13,8 @@ void fct_clock() {
 	print("\033[7m");
 	
 	print("\33[1;");
-	size = days_s[clock.day-1] + months_s[clock.month-1] + 20;
+	
+	size = days_s[clock.day-1] + months_s[month-1] + 20;
 	print_unsigned_char(80 - size);
 	putc('H');
 	ccp_time();
